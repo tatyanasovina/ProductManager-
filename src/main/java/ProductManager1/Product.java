@@ -2,6 +2,7 @@ package ProductManager1;
 
 public class Product {
     public int getId() {
+
         return id;
     }
 

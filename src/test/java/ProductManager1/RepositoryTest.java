@@ -70,4 +70,19 @@ public class RepositoryTest {
         Assertions.assertArrayEquals(expected,actual);
     }
 
+    @Test
+    public void WhenRemoveByIdNotExisted() {
+        Repository repo = new Repository();
+        Book book1 = new Book(1, "Necromans", 437,"Evgenia Safonova");
+        Book book2 = new Book(2, "Sholoh", 450,"Antonina Crane");
+        Book book3 = new Book(3, "Mara and Moroc", 500,"Leah Arden");
+
+        repo.add(book1);
+        repo.add(book2);
+        repo.add(book3);
+        Assertions.assertThrows(NotFoundException.class,
+                () -> repo.removeById(5)
+        );
+    }
+
 }
